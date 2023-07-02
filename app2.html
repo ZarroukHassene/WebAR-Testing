@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>AR Web App</title>
+    <style>
+      #container {
+        height: 100vh;
+        width: 100vw;
+        position: fixed;
+        top: 0;
+        left: 0;
+        overflow: hidden;
+      }
+    </style>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/2.0.8/aframe/build/aframe-ar.min.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <a-scene embedded arjs>
+      <div id="container"></div>
+    </a-scene>
+  </body>
+</html>
