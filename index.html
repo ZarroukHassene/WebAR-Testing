@@ -13,6 +13,17 @@
       left: 0;
       overflow: hidden;
     }
+    #next-button {
+      position: fixed;
+      top: 10px;
+      right: 10px;
+      z-index: 9999;
+      background-color: #fff;
+      padding: 10px 15px;
+      border-radius: 5px;
+      font-family: sans-serif;
+      cursor: pointer;
+    }
   </style>
   <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
   <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/2.0.8/aframe/build/aframe-ar.min.js"></script>
@@ -22,6 +33,7 @@
 <body>
   <a-scene embedded arjs>
     <div id="container"></div>
+    <div id="next-button">Next Video</div>
   </a-scene>
 </body>
 
