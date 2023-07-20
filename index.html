@@ -1,105 +1,35 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8">
+    
+	    <meta charset="utf-8">
     <title>Web AR App</title>
-    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
-    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-    <script src="app.js"></script>
-
-    <!-- Styles -->
-
-    <style>
-        #controls {
-            position: absolute;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        #playPauseBtn, #muteUnmuteBtn, #previousBtn, #nextBtnn {
-            background: none;
-            border: none;
-            cursor: pointer;
-            outline: none;
-            opacity: 0.5;
-    
-        }
-    
-        #playPauseIcon, #muteUnmuteIcon, #previousIcon, #nextIcon{
-            width: 50px;
-            height: 50px;
-        }
-        
-        #playPauseText{
-            color:rgb(255, 255, 255)
-        }
-
-        
-        #playPauseBtn:hover, #muteUnmuteBtn:hover, #previousBtn:hover, #nextBtnn:hover {
-            opacity: 1;
-            transform: scale(1.3);
-        }
-    </style>
-
+	  <link rel="stylesheet" href="minimal.css">
+	
 </head>
+<body>
+    <video id="videoPlayer" controls>
+        <source src="" type="video/mp4">
+    </video>
+	
+	<br>
+	<br>
+	
+    <!-- Your buttons here -->
+    <button id="previousBtn">
+        <img id="previousIcon" src="./media/previousBtn.png" alt="Previous">
+    </button>
+    <button id="playPauseBtn">
+        <img id="playPauseIcon" src="./media/playBtn.png" alt="Pause">
+        <h2 id="playPauseText"></h2>
+    </button>
+    <button id="nextBtn">
+        <img id="nextIcon" src="./media/nextBtn.png" alt="Next">
+    </button>
+    <button id="muteUnmuteBtn">
+        <img id="muteUnmuteIcon" src="./media/unmutedBtn.png" alt="Mute">
+    </button>
 
-<body style="margin: 0; overflow: hidden;">
-
-    <!-- Scene -->
-
-    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
-
-        <!-- Asset Management -->
-
-        <a-assets>
-            <video id="video" src="./media/1_sekou.mp4" loop="false" ></video>
-           
-            <img id="playBtn" src="./media/playBtn.png">
-            <img id="pauseBtn" src="./media/pauseBtn.png">
-            <img id="muteBtn" src="./media/unmutedBtn.png">
-            <img id="unmuteBtn" src="./media/mutedBtn.png">
-            <img id="previousBtn" src="./media/pauseBtn.png">
-            <img id="nextBtn" src="./media/pauseBtn.png">
-            <img id="pauseBtn" src="./media/pauseBtn.png">
-        </a-assets>
-
-        <!-- Marker -->
-
-        <a-marker type="hiro">
-            <a-video src="#video" width="4" height="4" rotation="-90 0 0" ></a-video>
-            <a-text id="atext" value="Test" color="White" position="-1 0 2.2" rotation="270 0 0"  side="double"></a-text>
-        </a-marker>
-
-        <!-- Camera -->
-
-        <a-entity camera></a-entity>
-
-        <!-- Controls -->
-
-    </a-scene>
-    <div id="controls">
-        <button id="previousBtn">
-            <img id="previousIcon" src="./media/previousBtn.png" alt="Previous">
-        </button>
-        <button id="playPauseBtn">
-            <img id="playPauseIcon" src="./media/playBtn.png" alt="Pause">
-            <h2 id="playPauseText" ></h2>
-        </button>
-        <button id="nextBtnn">
-            <img id="nextIcon" src="./media/nextBtn.png" alt="Next">
-        </button>
-        <button id="muteUnmuteBtn">
-            <img id="muteUnmuteIcon" src="./media/unmutedBtn.png" alt="Mute">
-        </button>
-    </div>
-
-    <!-- Text Script -->
-    <script>
-        //Alter the value of a-text of id=text to display src of the video
-     var atext = document.getElementById("atext");
-     var vidsrc = document.getElementById("video").getAttribute("src");
-       atext.setAttribute("value", vidsrc);
-   </script>
-    
+    <script src="fct.js"></script>
 </body>
 </html>

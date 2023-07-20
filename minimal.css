@@ -1,0 +1,29 @@
+        #controls {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        #playPauseBtn, #muteUnmuteBtn, #previousBtn, #nextBtnn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            opacity: 0.5;
+    
+        }
+    
+        #playPauseIcon, #muteUnmuteIcon, #previousIcon, #nextIcon{
+            width: 50px;
+            height: 50px;
+        }
+        
+        #playPauseText{
+            color:rgb(255, 255, 255)
+        }
+
+        
+        #playPauseBtn:hover, #muteUnmuteBtn:hover, #previousBtn:hover, #nextBtnn:hover {
+            opacity: 1;
+            transform: scale(1.3);
+        }
