@@ -14,6 +14,9 @@ for (let i = 0; i < videoUrls.length; i++) {
   playlist.appendChild(li);
 }
 
+//Hide the playlist div
+playlist.style.display = "none";
+
 //Function to update the playlist div to show the currently playing video
 function updatePlaylist() {
   const li = playlist.getElementsByTagName("li");
@@ -30,6 +33,16 @@ function updatePlaylist() {
 
 // Set up the video player
 
+//Toggle the playlist div via the showHidePlaylistBtn and change the icon of the button to show the current state
+function togglePlaylist() {
+  if (playlist.style.display == "none") {
+    playlist.style.display = "block";
+    showHidePlaylistIcon.src = "./media/showPlaylistBtn.png";
+  } else {
+    playlist.style.display = "none";
+    showHidePlaylistIcon.src = "./media/hidePlaylistBtn.png";
+  }
+}
 
 let currentIndex = 0;
 const videoPlayer = document.getElementById("videoPlayer");
@@ -37,6 +50,8 @@ const playPauseBtn = document.getElementById("playPauseBtn");
 const playPauseIcon = document.getElementById("playPauseIcon");
 const muteUnmuteBtn = document.getElementById("muteUnmuteBtn");
 const muteUnmuteIcon = document.getElementById("muteUnmuteIcon");
+const showHidePlaylistBtn = document.getElementById("showHidePlaylistBtn");
+const showHidePlaylistIcon = document.getElementById("showHidePlaylistIcon");
 
 let lastPlaybackPosition = 0;
 const marker = document.querySelector("a-marker");
@@ -121,6 +136,8 @@ document.getElementById("nextBtn").addEventListener("click", nextVideo);
 document.getElementById("previousBtn").addEventListener("click", previousVideo);
 playPauseBtn.addEventListener("click", togglePlayPause);
 muteUnmuteBtn.addEventListener("click", toggleMuteUnmute);
+showHidePlaylistBtn.addEventListener("click", togglePlaylist);
+
 
 // Start playing the first video in the playlist
 pauseVideo();
