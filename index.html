@@ -1,39 +1,72 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-    
-	    <meta charset="utf-8">
+
+    <meta charset="utf-8">
     <title>Web AR App</title>
-	  <link rel="stylesheet" href="minimal.css">
-	
+    <link rel="stylesheet" href="minimal.css">
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+
 </head>
-<body>
-    <video id="videoPlayer" controls>
-        <source src="" type="video/mp4">
-    </video>
-	
-	<br>
-	<br>
-	
+
+<body style="margin: 0; overflow: hidden;">
+
+    <!-- Scene -->
+
+    <a-scene embedded arjs="sourceType: webcam; debugUIEnabled: false;">
+
+        <!-- Asset Management -->
+
+        <a-assets>
+            <video id="videoPlayer" controls>
+                <source src="" type="video/mp4">
+            </video>
+        </a-assets>
+
+        <!-- Marker -->
+
+        <a-marker type="hiro">
+            <a-video src="#videoPlayer" width="4" height="4" rotation="-90 0 0"></a-video>
+            <!--<a-text id="atext" value="Test" color="White" position="-1 0 2.2" rotation="270 0 0"  side="double"></a-text>-->
+        </a-marker>
+
+        <!-- Camera -->
+
+        <a-entity camera></a-entity>
+
+        <!-- Controls -->
+
+    </a-scene>
+
     <!-- Your buttons here -->
-    <button id="previousBtn">
-        <img id="previousIcon" src="./media/previousBtn.png" alt="Previous">
-    </button>
-    <button id="playPauseBtn">
-        <img id="playPauseIcon" src="./media/playBtn.png" alt="Pause">
-        <h2 id="playPauseText"></h2>
-    </button>
-    <button id="nextBtn">
-        <img id="nextIcon" src="./media/nextBtn.png" alt="Next">
-    </button>
-	
-	<br>
-	<br>
-	
-    <button id="muteUnmuteBtn">
-        <img id="muteUnmuteIcon" src="./media/unmutedBtn.png" alt="Mute">
-    </button>
+
+    <div id="playlist">
+        <h2 id="playlistTitle">Playlist</h2>
+        
+
+    </div>
+
+    <div id="controls">
+        <button id="previousBtn">
+            <img id="previousIcon" src="./media/previousBtn.png" alt="Previous">
+        </button>
+        <button id="playPauseBtn">
+            <img id="playPauseIcon" src="./media/playBtn.png" alt="Pause">
+            <h2 id="playPauseText"></h2>
+        </button>
+        <button id="nextBtn">
+            <img id="nextIcon" src="./media/nextBtn.png" alt="Next">
+        </button>
+        <button id="muteUnmuteBtn">
+            <img id="muteUnmuteIcon" src="./media/unmutedBtn.png" alt="Mute">
+        </button>
+
+    </div>
 
     <script src="fct2.js"></script>
+
 </body>
+
 </html>
